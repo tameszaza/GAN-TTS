@@ -8,7 +8,6 @@ import argparse
 import os
 import time
 from models.generator import Generator
-from models.discriminator import Multiple_Random_Window_Discriminators
 from models.v2_discriminator import Discriminator
 from tensorboardX import SummaryWriter
 from utils.optimizer import Optimizer
@@ -18,7 +17,6 @@ from utils.loss import MultiResolutionSTFTLoss
 def create_model(args):
 
     generator = Generator(args.local_condition_dim, args.z_dim)
-    #discriminator = Multiple_Random_Window_Discriminators(args.local_condition_dim)
     discriminator = Discriminator()
 
     return generator, discriminator
